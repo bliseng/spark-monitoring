@@ -10,5 +10,6 @@ setup(
     author_email='',
     description='',
     install_requires=['requests'],
-    extras_requires={'pandas': ['pandas', 'matplotlib']}
+    extras_requires={'pandas': ['pandas', 'matplotlib']},
+    build_requires=['pydoc-markdown'],
 )

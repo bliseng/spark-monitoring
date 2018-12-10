@@ -1,0 +1,12 @@
+site_name: "spark-monitoring"
+
+pages:
+- Home: index.md << README.md
+- sparkmonitoring:
+  - Cool Stuff: api.md
+
+generate:
+  - api.md:
+      - sparkmonitoring++
+
+headers: markdown

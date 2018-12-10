@@ -1,6 +1,6 @@
-from sparkmonitoring.dataframes import PandasClient
+import sparkmonitoring as sparkmon
 
-monitoring = PandasClient('10.91.62.6')
+monitoring = sparkmon.df('10.91.62.6')
 
 apps = monitoring.list_applications()
 
