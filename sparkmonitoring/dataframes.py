@@ -52,5 +52,22 @@ class PandasClient(object):
         )
 
     def list_stages(self, app_id, status=None):
-        data = self._client.list_stages(app_id, status)
-        return data
+
+        def flatten_stage(a, s):
+            response = {
+                **s,
+                **{'accumulatorUpdate.' + k: v for k, v in a.items()}
+            }
+            del response['accumulatorUpdates']
+            return response
+
+        response = pd.DataFrame([
+            flatten_stage(a, s)
+            for s in self._client.list_stages(app_id, status)
+            for a in s['accumulatorUpdates']
+        ])
+        for col in ['firstTaskLaunchedTime', 'completionTime', 'submissionTime']:
+            response[col] = pd.to_datetime(response[col])
+
+        response['appId'] = app_id
+        return response.set_index(['appId', 'stageId', 'attemptId'])
