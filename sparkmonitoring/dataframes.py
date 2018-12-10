@@ -70,4 +70,4 @@ class PandasClient(object):
             response[col] = pd.to_datetime(response[col])
 
         response['appId'] = app_id
-        return response.set_index(['appId', 'stageId', 'attemptId'])
+        return response.set_index(['appId', 'stageId', 'attemptId'], drop=False)
