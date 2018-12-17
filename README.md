@@ -58,7 +58,7 @@ Method to return a client to make calls to the spark history server with.
 
 #### Response
 
- - [`sparkmonitoring.api.ClientV1`](#sparkmonitoringapiclientv1__init__)
+ - [`sparkmonitoring.api.ClientV1`](#sparkmonitoringapiclientv1)
  
 #### Examples
 _Basic Endpoint_
@@ -91,7 +91,7 @@ installed.
 
 #### Response
 
- - [`sparkmonitoring.dataframes.PandasClient`](#sparkmonitoringdataframespandasclient__init__)
+ - [`sparkmonitoring.dataframes.PandasClient`](#sparkmonitoringdataframespandasclient)
 
 #### Examples
 _Basic Endpoint_
@@ -107,7 +107,7 @@ client = sparkmon.df('my-server', port=8080, is_https=True)
 
 ```
 
-### sparkmonitoring.api.ClientV1.\_\_init\_\_
+### sparkmonitoring.api.ClientV1
 
 A client to interact with the Spark History Server.
 Generally this class is not instantiated directly, and is accessed via
@@ -122,10 +122,25 @@ Generally this class is not instantiated directly, and is accessed via
 | `is_https` | `bool` |  Whether or not to use https to communicate with the spark server | | 
 | `api_version` | `int` | API Version to interact with. Currently only `1` is supported | |
 
-### sparkmonitoring.dataframes.PandasClient.\_\_init\_\_
+#### Methods
 
-Method to return a client to make calls to the spark history server with,
-returning pandas DataFrames.
+ - `list_applications(...)`
+ - `get_application(...)`
+ - `list_jobs(...)`
+ - `get_job(...)`
+ - `list_stages(...)`
+ - `list_stage_attempts(...)`
+ - `get_stage_attempt(...)`
+ - `get_stage_attempt_summary(...)`
+ - `get_stage_attempt_tasks(...)`
+ - `list_active_executors(...)`
+ - `list_executor_threads(...)`
+ - `list_all_executors(...)`
+
+### sparkmonitoring.dataframes.PandasClient
+
+A client to interact with the Spark History Server, returning pandas
+DataFrames.
 Generally this class is not instantiated directly, and is accessed via
 [`sparkmonitoring.df`](#sparkmonitoringdf).
 
