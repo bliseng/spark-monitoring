@@ -107,7 +107,7 @@ client = sparkmon.df('my-server', port=8080, is_https=True)
 
 ```
 
-### sparkmonitoring.api.ClientV1.\__init\__
+### sparkmonitoring.api.ClientV1.\_\_init\_\_
 
 A client to interact with the Spark History Server
 
@@ -120,7 +120,7 @@ A client to interact with the Spark History Server
 | `is_https` | `bool` |  Whether or not to use https to communicate with the spark server | | 
 | `api_version` | `int` | API Version to interact with. Currently only `1` is supported | |
 
-### sparkmonitoring.dataframes.PandasClient.\__init\__
+### sparkmonitoring.dataframes.PandasClient.\_\_init\_\_
 
 Method to return a client to make calls to the spark history server with,
 returning pandas DataFrames.
