@@ -106,3 +106,31 @@ import sparkmonitoring as sparkmon
 client = sparkmon.df('my-server', port=8080, is_https=True)
 
 ```
+
+### sparkmonitoring.api.ClientV1.\__init\__
+
+A client to interact with the Spark History Server
+
+#### Arguments
+
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| `server` | `string` | Hostname or IP pointing to the spark history server | |
+| `port` | `int` | Port which the spark history server is exposed on | |
+| `is_https` | `bool` |  Whether or not to use https to communicate with the spark server | | 
+| `api_version` | `int` | API Version to interact with. Currently only `1` is supported | |
+
+### sparkmonitoring.dataframes.PandasClient.\__init\__
+
+Method to return a client to make calls to the spark history server with,
+returning pandas DataFrames.
+
+#### Arguments
+
+
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| `server` | `string` | Hostname or IP pointing to the spark history server | |
+| `port` | `int` | Port which the spark history server is exposed on | `18080` |
+| `is_https` | `bool` |  Whether or not to use https to communicate with the spark server | `False`
+| `api_version` | `int` | API Version to interact with. Currently only `1` is supported | `1` |
