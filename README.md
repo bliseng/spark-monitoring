@@ -59,6 +59,20 @@ Method to return a client to make calls to the spark history server with.
 #### Response
 
  - `sparkmonitoring.api.ClientV1`
+ 
+#### Examples
+_Basic Endpoint_
+```python
+import sparkmonitoring as sparkmon
+client = sparkmon.client('10.0.0.10')
+```
+
+_Custom Endpoint_
+```python
+import sparkmonitoring as sparkmon
+client = sparkmon.client('my-server', port=8080, is_https=True)
+
+```
 
 ### sparkmonitoring.df
 
