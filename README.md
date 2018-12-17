@@ -58,7 +58,7 @@ Method to return a client to make calls to the spark history server with.
 
 #### Response
 
- - [`sparkmonitoring.api.ClientV1`](#sparkmonitoringapiclientv1_init_)
+ - [`sparkmonitoring.api.ClientV1`](#sparkmonitoringapiclientv1__init__)
  
 #### Examples
 _Basic Endpoint_
@@ -91,7 +91,7 @@ installed.
 
 #### Response
 
- - [`sparkmonitoring.dataframes.PandasClient`](#sparkmonitoringdataframespandasclient_init_)
+ - [`sparkmonitoring.dataframes.PandasClient`](#sparkmonitoringdataframespandasclient__init__)
 
 #### Examples
 _Basic Endpoint_
