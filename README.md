@@ -1,37 +1,42 @@
-## Welcome to GitHub Pages
+## spark-monitoring
 
-You can use the [editor on GitHub](https://github.com/bliseng/spark-monitoring/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+A python library to interact with the Spark History server.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Quickstart
 
-### Markdown
+#### Basic
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+```shell
+$ pip install spark-monitoring
+```
+```python
+import sparkmonitoring as sparkmon
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+monitoring = sparkmon.client('my.history.server')
+print(monitoring.list_applications())
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+#### Pandas
 
-### Jekyll Themes
+```shell
+$ pip install spark-monitoring[pandas]
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/bliseng/spark-monitoring/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+```python
+import sparkmonitoring as sparkmon
+import matplotlib.pyplot as plt
 
-### Support or Contact
+monitoring = sparkmon.df('my.history.server')
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+apps = monitoring.list_applications()
+apps['function'] = apps.name.str.split('(').str.get(0)
+print(apps.head().stack())
+
+plt.figure()
+apps['duration'].hist(by=apps['function'], figsize=(40, 20))
+plt.show()
+
+jobs = monitoring.list_jobs(apps.iloc[0].id)
+
+print(jobs.head().stack())
+```
