@@ -109,7 +109,9 @@ client = sparkmon.df('my-server', port=8080, is_https=True)
 
 ### sparkmonitoring.api.ClientV1.\_\_init\_\_
 
-A client to interact with the Spark History Server
+A client to interact with the Spark History Server.
+Generally this class is not instantiated directly, and is accessed via
+[`sparkmonitoring.client`](#sparkmonitoringclient).
 
 #### Arguments
 
@@ -124,6 +126,8 @@ A client to interact with the Spark History Server
 
 Method to return a client to make calls to the spark history server with,
 returning pandas DataFrames.
+Generally this class is not instantiated directly, and is accessed via
+[`sparkmonitoring.df`](#sparkmonitoringdf).
 
 #### Arguments
 
