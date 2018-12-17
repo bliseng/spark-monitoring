@@ -1,6 +1,3 @@
-from sparkmonitoring.dataframes import PandasClient
-
-
 def client(server, port=18080, is_https=False, api_version=1):
     """
 
@@ -15,4 +12,5 @@ def client(server, port=18080, is_https=False, api_version=1):
 
 
 def df(server, port=18080, is_https=False, api_version=1):
+    from sparkmonitoring.dataframes import PandasClient
     return PandasClient(server, port, is_https, api_version)
