@@ -138,3 +138,11 @@ Generally this class is not instantiated directly, and is accessed via
 | `port` | `int` | Port which the spark history server is exposed on | `18080` |
 | `is_https` | `bool` |  Whether or not to use https to communicate with the spark server | `False`
 | `api_version` | `int` | API Version to interact with. Currently only `1` is supported | `1` |
+
+#### Methods
+
+ - `list_applications(...)`
+ - `get_application(...)`
+ - `list_jobs(...)`
+ - `get_job(...)`
+ - `list_stages(...)`
