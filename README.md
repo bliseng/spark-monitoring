@@ -71,7 +71,6 @@ _Custom Endpoint_
 ```python
 import sparkmonitoring as sparkmon
 client = sparkmon.client('my-server', port=8080, is_https=True)
-
 ```
 
 ### sparkmonitoring.df
@@ -93,3 +92,17 @@ installed.
 #### Response
 
  - `sparkmonitoring.dataframes.PandasClient`
+
+#### Examples
+_Basic Endpoint_
+```python
+import sparkmonitoring as sparkmon
+client = sparkmon.df('10.0.0.10')
+```
+
+_Custom Endpoint_
+```python
+import sparkmonitoring as sparkmon
+client = sparkmon.df('my-server', port=8080, is_https=True)
+
+```
