@@ -187,7 +187,7 @@ class ClientV1(BaseClient):
         :return:
         """
         return self._do_request(
-            '/applications/{app_id}/executors'.format(
+            'applications/{app_id}/executors'.format(
                 app_id=app_id
             )
         )
@@ -200,7 +200,7 @@ class ClientV1(BaseClient):
         :return:
         """
         return self._do_request(
-            '/applications/{app_id}/executors/{executor_id}/threads'.format(
+            'applications/{app_id}/executors/{executor_id}/threads'.format(
                 app_id=app_id, executor_id=executor_id
             )
         )
@@ -213,7 +213,7 @@ class ClientV1(BaseClient):
         :return:
         """
         return self._do_request(
-            '/applications/{app_id}/allexecutors'.format(
+            'applications/{app_id}/allexecutors'.format(
                 app_id=app_id
             )
         )
