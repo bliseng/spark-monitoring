@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 from pandas.io.json import json_normalize
 
 import sparkmonitoring
@@ -33,10 +34,14 @@ class PandasClient(object):
         )
 
     def _melt_jobs(self, jobs_df):
+        if len(jobs_df) < 1:
+            return pd.DataFrame()
         df = json_normalize(
             jobs_df
         ).set_index('jobId', drop=False)
         df['status'] = df['status'].astype('category')
+        if 'completionTime' not in df.columns:
+            df['completionTime'] = np.nan
         for col in ['submissionTime', 'completionTime']:
             df[col] = pd.to_datetime(df[col])
         return df.sort_index()

@@ -1,5 +1,5 @@
 import requests
-
+import backoff
 
 class BaseClient(object):
     def __init__(self, server, port, is_https, api_version):
@@ -19,6 +19,8 @@ class BaseClient(object):
             version=self._api_version
         )
 
+    @backoff.on_exception(backoff.expo,
+                          requests.exceptions.RequestException)
     def _do_request(self, path, params=None):
         url = self._base_url + path
         r = requests.get(url, params)

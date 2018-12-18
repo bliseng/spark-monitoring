@@ -14,7 +14,7 @@ setup(
     author='Drew J. Sonne',
     author_email='drew.sonne@gmail.com',
     description='A python library to interact with the Spark History server',
-    install_requires=['requests'],
+    install_requires=['requests','backoff'],
     extras_requires={'pandas': ['pandas', 'matplotlib']},
     build_requires=['pydoc-markdown'],
     long_description=long_description,
