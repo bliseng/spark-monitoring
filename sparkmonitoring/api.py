@@ -1,5 +1,4 @@
 import requests
-import backoff
 
 class BaseClient(object):
     def __init__(self, server, port, is_https, api_version):
@@ -19,8 +18,6 @@ class BaseClient(object):
             version=self._api_version
         )
 
-    @backoff.on_exception(backoff.expo,
-                          requests.exceptions.RequestException)
     def _do_request(self, path, params=None):
         url = self._base_url + path
         r = requests.get(url, params)
@@ -194,7 +191,7 @@ class ClientV1(BaseClient):
 
     def list_executor_threads(self, app_id, executor_id):
         """
-        Get a list of threds for an executor for a given application
+        Get a list of threads for an executor for a given application
 
         :param app_id: ID of the application for executors we wish to retrieve
         :return:
