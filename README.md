@@ -124,7 +124,7 @@ Generally this class is not instantiated directly, and is accessed via
 
 #### Methods
 
- - `list_applications(...)`
+ - [`list_applications(...)`](#sparkmonitoringdataframespandasclientlistapplications)
  - `get_application(...)`
  - `list_jobs(...)`
  - `get_job(...)`
@@ -136,6 +136,19 @@ Generally this class is not instantiated directly, and is accessed via
  - `list_active_executors(...)`
  - `list_executor_threads(...)`
  - `list_all_executors(...)`
+
+### sparkmonitoring.dataframes.PandasClient.list_applications
+
+A list of all applications.
+
+#### Arguments
+
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| `status` | `enum{'completed','running'}` | Type of applications to return |
+| `minDate` | `string{ISO8601}` | Earliest Application |
+| `maxDate` | `string{ISO8601}` | Latest Application |
+| `limit` | `int` | Number of results to return |
 
 ### sparkmonitoring.dataframes.PandasClient
 
