@@ -64,13 +64,13 @@ Method to return a client to make calls to the spark history server with.
 _Basic Endpoint_
 ```python
 import sparkmonitoring as sparkmon
-client = sparkmon.client('10.0.0.10')
+client = sparkmon.client('my.history.server')
 ```
 
 _Custom Endpoint_
 ```python
 import sparkmonitoring as sparkmon
-client = sparkmon.client('my-server', port=8080, is_https=True)
+client = sparkmon.client('my.history.server', port=8080, is_https=True)
 ```
 
 ### sparkmonitoring.df
@@ -97,13 +97,13 @@ installed.
 _Basic Endpoint_
 ```python
 import sparkmonitoring as sparkmon
-client = sparkmon.df('10.0.0.10')
+client = sparkmon.df('my.history.server')
 ```
 
 _Custom Endpoint_
 ```python
 import sparkmonitoring as sparkmon
-client = sparkmon.df('my-server', port=8080, is_https=True)
+client = sparkmon.df('my.history.server', port=8080, is_https=True)
 
 ```
 

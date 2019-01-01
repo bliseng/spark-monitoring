@@ -1,7 +1,7 @@
 site_name: "spark-monitoring"
 
 pages:
-- Home: index.md << README.md
+- Home: index.md << ../README.md
 - sparkmonitoring:
   - Cool Stuff: api.md
 
@@ -10,3 +10,6 @@ generate:
       - sparkmonitoring++
 
 headers: markdown
+
+loader:   pydocmd.loader.PythonLoader
+preprocessor: pydocmd.preprocessor.Preprocessor
