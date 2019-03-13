@@ -56,9 +56,6 @@ class PandasClient(object):
             self._client.get_job(app_id, job_id)
         )
 
-    def get_logs(self, app_id):
-        return self._client.get_logs(app_id)
-
     def list_stages(self, app_id, status=None):
 
         def flatten_stage(a, s):
