@@ -124,7 +124,7 @@ Generally this class is not instantiated directly, and is accessed via
 
 #### Methods
 
- - [`list_applications(...)`](#sparkmonitoringdataframespandasclientlistapplications)
+ - [`list_applications(...)`](#sparkmonitoringdataframespandasclientlist_applications)
  - `get_application(...)`
  - `list_jobs(...)`
  - `get_job(...)`
