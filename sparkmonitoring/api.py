@@ -1,5 +1,8 @@
 import requests
 
+from sparkmonitoring.responsetype import ResponseType
+
+
 class BaseClient(object):
     def __init__(self, server, port, is_https, api_version):
         self._server = server
@@ -18,14 +21,17 @@ class BaseClient(object):
             version=self._api_version
         )
 
-    def _do_request(self, path, params=None):
+    def _do_request(self, path, params=None, response_type=ResponseType.JSON):
         url = self._base_url + path
         r = requests.get(url, params)
 
         if r.status_code != requests.codes.ok:
             r.raise_for_status()
 
-        return r.json()
+        if response_type == ResponseType.JSON:
+            return r.json()
+        else:
+            return r.content
 
 
 class ClientV1(BaseClient):
@@ -213,4 +219,17 @@ class ClientV1(BaseClient):
             'applications/{app_id}/allexecutors'.format(
                 app_id=app_id
             )
+        )
+
+    def get_logs(self, app_id):
+        """
+        Get a zipped file containing all the logs of the application.
+
+        :param app_id: ID of the application for logs we wish to retrieve
+        """
+        return self._do_request(
+            'applications/{app_id}/logs'.format(
+                app_id=app_id
+            ),
+            response_type=ResponseType.RAW
         )
