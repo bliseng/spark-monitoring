@@ -1,0 +1,31 @@
+language: python
+python:
+  - "3.6"
+  - "3.7-dev"
+
+matrix:
+  allow_failures:
+  - python: "3.7-dev"
+
+before_install:
+  - pip install codecov flake8 autopep8
+
+install:
+  - pip install -r requirements.txt
+
+before_script:
+  - flake8 sparkmonitoring || autopep8 -r -d sparkmonitoring
+
+script:
+  - pytest
+  - python setup.py sdist bdist_wheel
+
+after_success:
+  - codecov
+
+deploy:
+  provider: pypi
+  user: $PYPI_USERNAME
+  password: $PYPI_PASSWORD
+  on:
+    tags: true
