@@ -17,7 +17,6 @@ before_script:
   - flake8 sparkmonitoring || autopep8 -r -d sparkmonitoring
 
 script:
-  - pytest
   - python setup.py sdist bdist_wheel
 
 after_success:
