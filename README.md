@@ -41,6 +41,33 @@ jobs = monitoring.list_jobs(apps.iloc[0].id)
 print(jobs.head().stack())
 ```
 
+## Proxies
+
+If your Spark history server is behind a proxy, you can connect using the `http_proxy` and 
+`https_proxy` environment variables. 
+
+## GCP
+
+To connect to dataproc History Server, create an SSH tunnel using a local port as 
+described in [Cluster web interfaces](https://cloud.google.com/dataproc/docs/concepts/accessing/cluster-web-interfaces) documentation
+and then use the environment variables as above. 
+
+**Note**: Use the IP for the cluster master node, as the google short names will not resolve
+through the socks proxy.
+
+### Example
+
+```bash
+gcloud compute ssh my-cluster-m \
+  --project=my-project \
+  --zone=us-east4-a -- -D 1080 -N
+
+http_proxy="socks5://localhost:1080" \
+    https_proxy="socks5://localhost:1080" \
+    python my_spark_history_script.py
+```
+
+
 ## Reference
 
 ### sparkmonitoring.client
